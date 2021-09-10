@@ -1,0 +1,9 @@
+{
+  "targets": {
+    "A": { "source": "./file.js" },
+    "B": { "source": "./file.js" }
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-rc.0"
+  }
+}
