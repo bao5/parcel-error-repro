@@ -1,0 +1,32 @@
+diff --git a/node_modules/@parcel/core/lib/requests/TargetRequest.js b/node_modules/@parcel/core/lib/requests/TargetRequest.js
+index a609444..38d4bda 100644
+--- a/node_modules/@parcel/core/lib/requests/TargetRequest.js
++++ b/node_modules/@parcel/core/lib/requests/TargetRequest.js
+@@ -278,16 +278,18 @@ class TargetResolver {
+           });
+         }
+ 
+-        if (!_Environment2.BROWSER_ENVS.has(targets[0].env.context)) {
+-          throw new (_diagnostic().default)({
+-            diagnostic: {
+-              message: `Only browser targets are supported in serve mode`,
+-              origin: '@parcel/core'
+-            }
+-          });
+-        }
++        if (targets.length > 0) {
++          if (!_Environment2.BROWSER_ENVS.has(targets[0].env.context)) {
++            throw new (_diagnostic().default)({
++              diagnostic: {
++                message: `Only browser targets are supported in serve mode`,
++                origin: '@parcel/core'
++              }
++            });
++          }
+ 
+-        targets[0].distDir = (0, _projectPath.toProjectPath)(this.options.projectRoot, serve.distDir);
++          targets[0].distDir = (0, _projectPath.toProjectPath)(this.options.projectRoot, serve.distDir);
++        }
+       }
+     } else {
+       // Explicit targets were not provided. Either use a modern target for server
